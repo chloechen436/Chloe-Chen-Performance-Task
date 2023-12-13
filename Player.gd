@@ -4,6 +4,10 @@ extends Area2D
 
 @onready var player = $"."
 
+@onready var b_gmusic = $"../BGmusic"
+
+@onready var enemy_hit = $"../EnemyHit"
+
 func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
@@ -33,3 +37,5 @@ func _ready():
 
 func _on_body_entered(body):
 	hide()
+	enemy_hit.play()
+	b_gmusic.stop()
