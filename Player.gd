@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed = 400.0
 
+@onready var player = $"."
 
 func _process(delta):
 	var velocity = Vector2.ZERO
@@ -18,6 +19,8 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		
 	position += velocity * delta
+	
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,3 +29,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
+
+
+func _on_body_entered(body):
+	hide()
